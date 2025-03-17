@@ -1,0 +1,43 @@
+body {
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    max-width: 500px;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.input-field input {
+    color: #ffffff;
+}
+
+.result {
+    font-size: 1.5em;
+    font-weight: bold;
+    
+    margin-top: 15px;
+}
+
+.light-theme {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+.light-theme .container {
+    background-color: #f5f5f5;
+    color: #000000;
+}
+
+.light-theme .input-field input {
+    color: #000000;
+}
