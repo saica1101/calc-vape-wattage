@@ -41,13 +41,6 @@ body {
     text-align: center;
 }
 
-.light-theme .container {
-    background-color: var(--bg-200);
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    color: var(--text-200);
-}
-
 .input-field input {
     color: var(--dark-text-100);
 }
@@ -67,9 +60,10 @@ body {
 
 .light-theme .container {
     background-color: var(--bg-200);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     color: var(--text-200);
 }
-
 .light-theme .input-field input {
     color: var(--text-100);
 }
