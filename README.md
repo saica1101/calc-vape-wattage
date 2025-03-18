@@ -59,7 +59,7 @@
 2. Enter the voltage (V).
 3. The output wattage is automatically calculated and displayed.
 4. Click the "Clear" button to reset the input fields.
-5. Click the "Toggle Theme" button to switch between light and dark themes.
+5. Click the "🌙 or ☀️" button to switch between light and dark themes.
 
 ## Installation
 1. Clone this repository.
