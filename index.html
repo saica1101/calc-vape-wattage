@@ -5,26 +5,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>VAPE ワット数計算</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="css/index.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="css/index.css">
     </head>
     <body>
+
         <div class="container">
             <h4>VAPE ワット数計算</h4>
             <div class="input-field">
                 <label for="resistance">抵抗値(Ω):</label>
-                <input type="number" id="resistance" step="0.01" min="0.1" required>
+                <input type="number" id="resistance" step="0.01" min="0.1" required placeholder="例: 1.2">
+                <span class="helper-text" id="resistanceError"></span>
             </div>
 
             <div class="input-field">
                 <label for="voltage">ボルト数(V):</label>
-                <input type="number" id="voltage" step="0.1" min="0.1" required value="3.8">
+                <input type="number" id="voltage" step="0.1" min="0.1" required value="3.8" placeholder="例: 3.8">
+                <span class="helper-text" id="voltageError"></span>
             </div>
 
+            <div class="result" id="wattageOutput">出力ワット数: - W</div>
+
             <button class="btn red darken-2 waves-effect waves-light" onclick="clearFields()">クリア</button>
-            <button class="btn grey darken-2 waves-effect waves-light" onclick="toggleTheme()">
+            <button class="btn grey darken-2 waves-effect waves-light tooltipped" data-tooltip="テーマ切り替え" onclick="toggleTheme()">
                 <i class="material-icons" id="themeIcon">light_mode</i>
             </button>
+
             <div class="result" id="wattageOutput"></div>
         </div>
 
