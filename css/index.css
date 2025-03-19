@@ -30,6 +30,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    transition: background-color 0.5s, color 0.5s; /* テーマ切り替え時のdurationを設定 */
 }
 
 .container {
@@ -39,10 +40,12 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
     text-align: center;
+    transition: background-color 0.5s, color 0.5s; /* テーマ切り替え時のdurationを設定 */
 }
 
 .input-field input {
     color: var(--dark-text-100);
+    transition: color 0.5s; /* テーマ切り替え時のdurationを設定 */
 }
 
 .result {
@@ -51,6 +54,7 @@ body {
     margin-top: 15px;
     min-height: 1.5em;
     color: var(--dark-accent-100); /* 色を強調 */
+    transition: color 0.5s, text-shadow 0.5s; /* テーマ切り替え時のdurationを設定 */
 }
 
 .light-theme {
@@ -64,6 +68,7 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     color: var(--text-200);
 }
+
 .light-theme .input-field input {
     color: var(--text-100);
 }
