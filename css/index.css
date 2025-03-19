@@ -40,25 +40,31 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
     text-align: center;
-    transition: all 0.5s; /* テーマ切り替え時のdurationを設定 */
+    transition: all 0.5s;
+}
+
+input::placeholder,
+.input-field input,
+#resistance,
+#voltage,
+.result {
+    transition: all 0.5s;
+}
+
+.input-field input {
+    color: var(--dark-text-100);
 }
 
 input::placeholder {
     font-size: 0.8em;
 }
 
-.input-field input {
-    color: var(--dark-text-100);
-    transition: all 0.5s; /* テーマ切り替え時のdurationを設定 */
-}
-
 .result {
-    font-size: 2em; /* フォントサイズを大きくする */
+    font-size: 2em;
     font-weight: bold;
     margin-top: 15px;
     min-height: 1.5em;
-    color: var(--dark-accent-100); /* 色を強調 */
-    transition: all 0.5s; /* テーマ切り替え時のdurationを設定 */
+    color: var(--dark-accent-100);
 }
 
 .light-theme {
@@ -68,24 +74,18 @@ input::placeholder {
 
 .light-theme .container {
     background-color: var(--bg-200);
-    border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     color: var(--text-200);
 }
 
-.light-theme input::placeholder {
-    color: var(--text-100);
-    transition: all 0.5s;
-}
-
+.light-theme input::placeholder,
 .light-theme .input-field input {
     color: var(--text-100);
-    transition: all 0.5s;
 }
 
 .light-theme .result {
-    color: var(--dark-accent-100); /* ライトテーマ時の文字色を変更 */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* 縁取りを追加 */
+    color: var(--dark-accent-100);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .helper-text {
