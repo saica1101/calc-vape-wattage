@@ -39,7 +39,8 @@ function calculateWattage() {
     }
 
     let wattage = (voltage * voltage) / resistance;
-    document.getElementById("wattageOutput").textContent = `出力ワット数: ${wattage.toFixed(1)} W`;
+    let chk_decimal = document.querySelector("input[name='decimals']").checked ? 2 : 1;
+    document.getElementById("wattageOutput").textContent = `出力ワット数: ${wattage.toFixed(chk_decimal)} W`;
 }
 
 function clearFields() {
@@ -93,3 +94,4 @@ document.getElementById("voltage").addEventListener("input", (event) => {
     calculateWattage();
 });
 document.getElementById("voltage").addEventListener("change", calculateWattage);
+document.querySelector("input[name='decimals']").addEventListener("change" ,calculateWattage);

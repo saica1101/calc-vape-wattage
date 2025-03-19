@@ -24,14 +24,19 @@
                 <span class="helper-text" id="voltageError"></span>
             </div>
 
+            <div class="decimalPlaces">
+                <label id="decimals">
+                    <input name="decimals" type="checkbox" class="filled-in" />
+                    <span>小数第2位まで表示する</span>
+                </label>
+            </div>
+
             <div class="result" id="wattageOutput">出力ワット数: - W</div>
 
             <button class="btn red darken-2 waves-effect waves-light" onclick="clearFields()">クリア</button>
             <button class="btn grey darken-2 waves-effect waves-light tooltipped" data-tooltip="テーマ切り替え" onclick="toggleTheme()">
                 <i class="material-icons" id="themeIcon">light_mode</i>
             </button>
-
-            <div class="result" id="wattageOutput"></div>
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
