@@ -14,7 +14,7 @@
 2. ボルト数（V）を入力します。
 3. 出力ワット数が自動的に計算され、表示されます。
 4. 「クリア」ボタンをクリックすると、入力フィールドがリセットされます。
-5. 「テーマ切り替え」ボタンをクリックすると、ライトテーマとダークテーマを切り替えることができます。
+5. 「🌙／☀️」ボタンをクリックすると、ライトテーマとダークテーマを切り替えることができます。
 
 ## インストール
 1. このリポジトリをクローンします。
@@ -59,7 +59,7 @@
 2. Enter the voltage (V).
 3. The output wattage is automatically calculated and displayed.
 4. Click the "Clear" button to reset the input fields.
-5. Click the "Toggle Theme" button to switch between light and dark themes.
+5. Click the "🌙 or ☀️" button to switch between light and dark themes.
 
 ## Installation
 1. Clone this repository.
