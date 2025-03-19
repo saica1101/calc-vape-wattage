@@ -75,6 +75,7 @@ input::placeholder {
 
 .light-theme input::placeholder {
     color: var(--text-100);
+    transition: all 0.5s;
 }
 
 .light-theme .input-field input {
