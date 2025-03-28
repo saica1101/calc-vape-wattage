@@ -73,6 +73,7 @@ input::placeholder {
 }
 
 span {
+  color: var(--dark-text-100);
   transition: all 0.5s;
 }
 
@@ -84,10 +85,6 @@ span {
 .light-theme [type=checkbox].filled-in:not(:checked) + span:not(.lever):after {
   border: 2px solid var(--dark-bg-200);
   transition: all 0.5s;
-}
-
-span {
-  color: var(--dark-text-100);
 }
 
 .light-theme span {
@@ -141,4 +138,3 @@ span {
   display: block;
   color: red;
 }
-/*# sourceMappingURL=index.css.map */
