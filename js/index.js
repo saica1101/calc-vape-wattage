@@ -34,7 +34,7 @@ function calculateWattage() {
     let voltage = parseFloat(document.getElementById("voltage").value);
 
     let wattage = (voltage * voltage) / resistance;
-    let chk_decimal = document.querySelector("input[name='decimals']").checked ? 2 : 1;
+    const chk_decimal = document.querySelector("input[name='decimals']").checked ? 2 : 1;
     document.getElementById("wattageOutput").textContent = `出力ワット数: ${wattage.toFixed(chk_decimal)} W`;
 }   
 
