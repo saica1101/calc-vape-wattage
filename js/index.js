@@ -53,12 +53,12 @@ function toggleTheme() {
     const isLightTheme = document.body.classList.toggle("light-theme");
 
     if (isLightTheme) {
-        themeIcon.classList.remove("fa-moon");
-        themeIcon.classList.add("fa-sun");
-        localStorage.setItem("theme", "light");
-    } else {
         themeIcon.classList.remove("fa-sun");
         themeIcon.classList.add("fa-moon");
+        localStorage.setItem("theme", "light");
+    } else {
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
         localStorage.setItem("theme", "dark");
     }
 }
@@ -69,12 +69,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (savedTheme === "light") {
         document.body.classList.add("light-theme");
+        themeIcon.classList.remove("fa-sun");
+        themeIcon.classList.add("fa-moon");
+    } else if (savedTheme === "dark") {
+        document.body.classList.remove("light-theme");
         themeIcon.classList.remove("fa-moon");
         themeIcon.classList.add("fa-sun");
     } else {
+        // 初回ロード時のデフォルト設定
+        localStorage.setItem("theme", "dark");
         document.body.classList.remove("light-theme");
-        themeIcon.classList.remove("fa-sun");
-        themeIcon.classList.add("fa-moon");
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
     }
 
     // 前回の入力値を復元
