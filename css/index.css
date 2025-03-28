@@ -138,3 +138,13 @@ span {
   display: block;
   color: red;
 }
+
+button.tooltipped {
+  width: 51px;
+  height: 36px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  box-sizing: border-box;
+}
