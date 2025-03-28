@@ -65,12 +65,16 @@ function toggleTheme() {
 
 document.addEventListener("DOMContentLoaded", () => {
     const savedTheme = localStorage.getItem("theme");
+    const themeIcon = document.getElementById("themeIcon");
+
     if (savedTheme === "light") {
-        const themeIcon = document.getElementById("themeIcon");
         document.body.classList.add("light-theme");
-        themeIcon.classList.contains("fa-moon");
         themeIcon.classList.remove("fa-moon");
         themeIcon.classList.add("fa-sun");
+    } else {
+        document.body.classList.remove("light-theme");
+        themeIcon.classList.remove("fa-sun");
+        themeIcon.classList.add("fa-moon");
     }
 
     // 前回の入力値を復元
@@ -107,6 +111,7 @@ document.getElementById("voltage").addEventListener("input", (event) => {
     }
     calculateWattage();
 });
+
 document.querySelector("input[name='decimals']").addEventListener("change", (event) => {
     localStorage.setItem("decimals", event.target.checked);
     calculateWattage();
