@@ -48,77 +48,90 @@ function clearFields() {
     document.getElementById("wattageOutput").textContent = "出力ワット数: - W";
 }
 
-function toggleTheme() {
-    const themeIcon = document.getElementById("themeIcon");
-    const isLightTheme = document.body.classList.toggle("light-theme");
-
-    if (isLightTheme) {
-        themeIcon.classList.remove("fa-sun");
-        themeIcon.classList.add("fa-moon");
-        localStorage.setItem("theme", "light");
-    } else {
-        themeIcon.classList.remove("fa-moon");
-        themeIcon.classList.add("fa-sun");
-        localStorage.setItem("theme", "dark");
-    }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
+// テーマの初期化処理を関数化
+function initializeTheme() {
     const savedTheme = localStorage.getItem("theme");
     const themeIcon = document.getElementById("themeIcon");
 
     if (savedTheme === "light") {
-        document.body.classList.add("light-theme");
-        themeIcon.classList.remove("fa-sun");
-        themeIcon.classList.add("fa-moon");
-    } else if (savedTheme === "dark") {
-        document.body.classList.remove("light-theme");
-        themeIcon.classList.remove("fa-moon");
-        themeIcon.classList.add("fa-sun");
+        applyLightTheme(themeIcon);
     } else {
-        // 初回ロード時のデフォルト設定
-        localStorage.setItem("theme", "dark");
-        document.body.classList.remove("light-theme");
-        themeIcon.classList.remove("fa-moon");
-        themeIcon.classList.add("fa-sun");
+        applyDarkTheme(themeIcon);
+        if (!savedTheme) {
+            localStorage.setItem("theme", "dark"); // 初回ロード時のデフォルト設定
+        }
     }
+}
 
-    // 前回の入力値を復元
+// ライトテーマを適用
+function applyLightTheme(themeIcon) {
+    document.body.classList.add("light-theme");
+    themeIcon.classList.remove("fa-sun");
+    themeIcon.classList.add("fa-moon");
+    localStorage.setItem("theme", "light");
+}
+
+// ダークテーマを適用
+function applyDarkTheme(themeIcon) {
+    document.body.classList.remove("light-theme");
+    themeIcon.classList.remove("fa-moon");
+    themeIcon.classList.add("fa-sun");
+    localStorage.setItem("theme", "dark");
+}
+
+// テーマ切り替え処理
+function toggleTheme() {
+    const themeIcon = document.getElementById("themeIcon");
+    if (document.body.classList.contains("light-theme")) {
+        applyDarkTheme(themeIcon);
+    } else {
+        applyLightTheme(themeIcon);
+    }
+}
+
+// 入力値の初期化処理を関数化
+function initializeInputs() {
     const savedResistance = localStorage.getItem("resistance");
     const savedVoltage = localStorage.getItem("voltage");
+    const savedDecimals = localStorage.getItem("decimals");
+
     if (savedResistance) {
         document.getElementById("resistance").value = savedResistance;
     }
     if (savedVoltage) {
         document.getElementById("voltage").value = savedVoltage;
     }
-
-    // チェックボックスの状態を復元
-    const savedDecimals = localStorage.getItem("decimals");
-    if (savedDecimals === "true") {
-        document.querySelector("input[name='decimals']").checked = true;
-    } else {
-        document.querySelector("input[name='decimals']").checked = false;
-    }
+    document.querySelector("input[name='decimals']").checked = savedDecimals === "true";
 
     calculateWattage();
+}
+
+// DOMContentLoadedイベントで初期化
+document.addEventListener("DOMContentLoaded", () => {
+    initializeTheme();
+    initializeInputs();
 });
 
-document.getElementById("resistance").addEventListener("input", (event) => {
-    if (validateInput()) {
-        localStorage.setItem("resistance", event.target.value);
-    }
-    calculateWattage();
-});
+// 入力フィールドのイベントリスナー
+function setupInputListeners() {
+    document.getElementById("resistance").addEventListener("input", (event) => {
+        if (validateInput()) {
+            localStorage.setItem("resistance", event.target.value);
+        }
+        calculateWattage();
+    });
 
-document.getElementById("voltage").addEventListener("input", (event) => {
-    if (validateInput()) {
-        localStorage.setItem("voltage", event.target.value);
-    }
-    calculateWattage();
-});
+    document.getElementById("voltage").addEventListener("input", (event) => {
+        if (validateInput()) {
+            localStorage.setItem("voltage", event.target.value);
+        }
+        calculateWattage();
+    });
 
-document.querySelector("input[name='decimals']").addEventListener("change", (event) => {
-    localStorage.setItem("decimals", event.target.checked);
-    calculateWattage();
-});
+    document.querySelector("input[name='decimals']").addEventListener("change", (event) => {
+        localStorage.setItem("decimals", event.target.checked);
+        calculateWattage();
+    });
+}
+
+setupInputListeners();

@@ -139,7 +139,8 @@ span {
   color: red;
 }
 
-button.tooltipped {
+/* テーマ切り替えボタンのスタイルを統一 */
+.tooltipped {
   width: 51px;
   height: 36px;
   display: inline-flex;
@@ -159,6 +160,7 @@ button.tooltipped {
   pointer-events: none;
 }
 
+/* スモークエフェクトのスタイルを簡潔化 */
 .elem {
   position: absolute;
   width: 10px;
@@ -169,16 +171,10 @@ button.tooltipped {
 }
 
 .light-theme .elem {
-  position: absolute;
-  width: 10px;
-  height: 10px;
   background: radial-gradient(circle, rgb(190, 190, 190) 0%, rgba(255,255,255,0) 80%);
-  pointer-events: none;
-  animation: ripple 1s ease-out forwards;
 }
 
-@keyframes ripple
-{
+@keyframes ripple {
   0% {
     transform: scale(1) translateY(0);
     opacity: 1;

@@ -1,16 +1,21 @@
 let smoke = document.getElementById("smoke");
 
-function createSmoke(e){
-    let elem = document.createElement("div");
-    elem.classList.add("elem");
+// スモークエフェクトの作成処理を最適化
+function createSmoke(e) {
+    const elem = document.createElement("div");
+    elem.className = "elem"; // classList.addを簡略化
 
     elem.style.left = `${e.clientX}px`;
     elem.style.top = `${e.clientY}px`;
     smoke.appendChild(elem);
 
-    elem.addEventListener("animationend", () => {
-        elem.remove();
-    })
+    // アニメーション終了時に要素を削除
+    elem.onanimationend = () => elem.remove();
 }
 
-document.addEventListener("mousemove", createSmoke);
+// イベントリスナーの登録
+function setupSmokeEffect() {
+    document.addEventListener("mousemove", createSmoke);
+}
+
+setupSmokeEffect();
